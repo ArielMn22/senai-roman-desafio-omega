@@ -1,0 +1,4 @@
+ID;NOME;EMAIL;SENHA;ID_TIPO_USUARIO
+1;Administrador;adm@adm;123456;1
+2;Helena;helena@helena;123456;2
+3;Fernando;fernando@fernando;123456;2
