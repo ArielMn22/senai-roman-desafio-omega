@@ -67,4 +67,7 @@ FROM 'C:\db\usuario_equipe.csv'
 		DATAFILETYPE = 'Char' -- tipo do arquivo = 'Char'
 	);
 
-
+GO
+	BACKUP DATABASE ROMAN_OMEGA
+	TO DISK = 'C:\db\ROMAN_OMEGA.BAK'
+GO
