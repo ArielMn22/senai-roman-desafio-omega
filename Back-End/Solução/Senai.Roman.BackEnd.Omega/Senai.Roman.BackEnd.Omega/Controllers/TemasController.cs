@@ -77,6 +77,11 @@ namespace Senai.Roman.BackEnd.Omega.Controllers
                     temaProcurado.Nome = tema.Nome;
                 }
 
+                if (tema.StatusAtivo != null)
+                {
+                    temaProcurado.StatusAtivo = tema.StatusAtivo;
+                }
+
                 TemaRepository.Atualizar(temaProcurado);
                 return Ok();
             }

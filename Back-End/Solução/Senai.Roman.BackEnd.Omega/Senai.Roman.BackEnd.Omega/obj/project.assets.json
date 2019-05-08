@@ -12651,11 +12651,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega.csproj",
+      "projectUniqueName": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega.csproj",
       "projectName": "Senai.Roman.BackEnd.Omega",
-      "projectPath": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega.csproj",
+      "projectPath": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega.csproj",
       "packagesPath": "C:\\Users\\33747821839\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\obj\\",
+      "outputPath": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -51,6 +51,10 @@ namespace Senai.Roman.BackEnd.Omega.Domains
             {
                 entity.ToTable("PROJETOS");
 
+                entity.HasIndex(e => e.Nome)
+                    .HasName("UQ__PROJETOS__E2AB1FF488DE976F")
+                    .IsUnique();
+
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.IdTema).HasColumnName("ID_TEMA");
@@ -66,17 +70,21 @@ namespace Senai.Roman.BackEnd.Omega.Domains
                 entity.HasOne(d => d.IdTemaNavigation)
                     .WithMany(p => p.Projetos)
                     .HasForeignKey(d => d.IdTema)
-                    .HasConstraintName("FK__PROJETOS__ID_TEM__5629CD9C");
+                    .HasConstraintName("FK__PROJETOS__ID_TEM__59063A47");
 
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Projetos)
                     .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("FK__PROJETOS__ID_USU__571DF1D5");
+                    .HasConstraintName("FK__PROJETOS__ID_USU__59FA5E80");
             });
 
             modelBuilder.Entity<Temas>(entity =>
             {
                 entity.ToTable("TEMAS");
+
+                entity.HasIndex(e => e.Nome)
+                    .HasName("UQ__TEMAS__E2AB1FF44D5BCBD1")
+                    .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -106,6 +114,10 @@ namespace Senai.Roman.BackEnd.Omega.Domains
             {
                 entity.ToTable("USUARIOS");
 
+                entity.HasIndex(e => e.Email)
+                    .HasName("UQ__USUARIOS__161CF7244D6C8F4E")
+                    .IsUnique();
+
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Email)
@@ -130,7 +142,7 @@ namespace Senai.Roman.BackEnd.Omega.Domains
                 entity.HasOne(d => d.IdTipoUsuarioNavigation)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdTipoUsuario)
-                    .HasConstraintName("FK__USUARIOS__ID_TIP__5070F446");
+                    .HasConstraintName("FK__USUARIOS__ID_TIP__52593CB8");
             });
         }
     }

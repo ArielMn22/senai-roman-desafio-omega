@@ -6,5 +6,205 @@
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
-	"item": []
+	"item": [
+		{
+			"name": "Usuários",
+			"description": "",
+			"item": [
+				{
+					"name": "Listar todos usuários",
+					"request": {
+						"url": "http://localhost:5000/api/usuarios",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar usuários",
+					"request": {
+						"url": "http://localhost:5000/api/usuarios",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Clóvis\",\n\t\"email\" : \"clovis@clovis\",\n\t\"senha\" : \"clovis\",\n\t\"idTipoUsuario\" : 2\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"url": "http://localhost:5000/api/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"adm@adm\",\n\t\"senha\" : \"123456\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projetos",
+			"description": "",
+			"item": [
+				{
+					"name": "Listar projetos",
+					"request": {
+						"url": "http://localhost:5000/api/projetos",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar projeto",
+					"request": {
+						"url": "http://localhost:5000/api/projetos",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Cadastrar pets\",\n\t\"idTema\" : 1,\n\t\"idUsuario\" : 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar projeto",
+					"request": {
+						"url": "http://localhost:5000/api/projetos",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\t{\n        \"id\": 2,\n        \"nome\": \"Listagem de Personagens\",\n        \"idTema\": 2,\n        \"idUsuario\": 2\n\t}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar projeto por id",
+					"request": {
+						"url": "http://localhost:5000/api/projetos/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Temas",
+			"description": "",
+			"item": [
+				{
+					"name": "Listar todos temas",
+					"request": {
+						"url": "http://localhost:5000/api/temas",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar tema",
+					"request": {
+						"url": "http://localhost:5000/api/temas",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n\t{\n        \"id\": 2,\n        \"nome\": \"HQ's de quadrinhos\",\n        \"statusAtivo\": false,\n        \"projetos\": []\n    }\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar tema",
+					"request": {
+						"url": "http://localhost:5000/api/temas",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Design\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipes",
+			"description": "",
+			"item": [
+				{
+					"name": "Listar equipes",
+					"request": {
+						"url": "http://localhost:5000/api/equipes",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
 }
