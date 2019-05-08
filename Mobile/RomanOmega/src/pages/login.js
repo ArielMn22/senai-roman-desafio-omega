@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import axios from 'axios';
 
 import {
     StyleSheet,
@@ -29,6 +28,12 @@ export default class Login extends Component{
     }
 
     _realizarLogin = async () => {
+
+        let teste1 = this.state.email;
+        let teste2 = this.state.password;
+        
+        console.warn(teste1, teste2);
+
         const resposta = api.post('/login', {
             email: this.state.email,
             senha: this.state.password
@@ -37,7 +42,7 @@ export default class Login extends Component{
         const token = resposta.data.token;
         console.warn(token);
         await AsyncStorage.setItem('usr-roman', token);
-        this.props.navigation.navigate('')
+        this.props.navigation.navigate('Cadastro');
     }
 
     render(){
