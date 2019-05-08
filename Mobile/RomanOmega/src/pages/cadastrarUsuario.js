@@ -22,8 +22,8 @@ export default class CadastrarUsuario extends Component {
     this.state = {
       nome: "",
       email: "",
-      password: "",
-      confirmPassword: ""
+      senha: "",
+    //   confirmPassword: ""
     };
   }
 
@@ -33,19 +33,26 @@ export default class CadastrarUsuario extends Component {
     let usuario = {
       nome: this.state.nome,
       email: this.state.email,
-      senha: this.state.password,
+      senha: this.state.senha,
       idTipoUsuario: 1
     };
 
-    await Axios.post("http://localhost:5000/api/usuarios", usuario)
+    await Axios.post("http://192.168.3.143:5000/api/usuarios", usuario, {
+      headers: {
+        "Content-Type" : "application/json",
+      }
+    })
       .then(data => {
         console.warn(data);
+        console.warn("mandou");
       })
       .catch(erro => {
         console.warn(erro);
       });
+
     // const resposta = await api.post("/usuarios", usuario);
-  }
+    // console.warn(resposta.data);
+  };
 
   static navigationOptions = {
     header: null
@@ -84,11 +91,11 @@ export default class CadastrarUsuario extends Component {
               placeholder="Password"
               placeholderTextColor="#FFFFFF"
               underlineColorAndroid="#FFFFFF"
-              onChange={password => this.setState({ password })}
+              onChange={senha => this.setState({ senha })}
             />
           </View>
 
-          <View style={styles.inputBoxPass}>
+          {/* <View style={styles.inputBoxPass}>
             <Icon name="lock" size={24} color="#FFF" />
             <TextInput
               style={styles.inputSenha}
@@ -97,7 +104,7 @@ export default class CadastrarUsuario extends Component {
               underlineColorAndroid="#FFFFFF"
               onChange={confirmPassword => this.setState({ confirmPassword })}
             />
-          </View>
+          </View> */}
 
           <TouchableOpacity
             style={styles.btnLogin}
