@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import axios from 'axios';
 
 import {
     StyleSheet,
     View,
     Text,
-    Image,
     ImageBackground,
     TextInput,
     TouchableOpacity,
@@ -19,52 +19,115 @@ export default class Login extends Component{
         header: null
     };
 
+    constructor(props){
+        super(props);
+
+        this.state = {
+            email: '',
+            password: ''
+        };
+    }
+
+    _realizarLogin = async () => {
+        const resposta = api.post('/login', {
+            email: this.state.email,
+            senha: this.state.password
+        });
+
+        const token = resposta.data.token;
+        console.warn(token);
+        await AsyncStorage.setItem('usr-roman', token);
+        this.props.navigation.navigate('')
+    }
+
     render(){
         return(
-            <View style={styles.container}>
-                <View style={styles.loginBox}>
-                    <View style={styles.inputBoxEmail}>
-                        <Icon name="email" size={24} color="#FFF"/>
-                        <TextInput 
-                            style={styles.inputEmail}
-                            placeholder="Email"
-                            placeholderTextColor="#FFFFFF"
-                            underlineColorAndroid="#FFFFFF"
-                            onChange={email => this.setState({ email })}
-                        />
-                    </View>
+            <ImageBackground
+                source={require('../assets/images/background_loginNew.png')}
+                style={{ width: '100%', height: '100%' }}
+            >
+                <View style={styles.body}>
+                    <View style={styles.container}>
 
-                    <View style={styles.inputBoxPass}>
-                        <Icon 
-                            name="lock" 
-                            size={24} 
-                            color="#FFF"
-                        />
-                        <TextInput 
-                            style={styles.inputSenha}
-                            placeholder="Password"
-                            placeholderTextColor="#FFFFFF"
-                            underlineColorAndroid="#FFFFFF"
-                            onChange={password => this.setState({ password })}
-                        />
-                    </View>
+                        <View style={styles.mainTitles}>
+                            <Text style={styles.titleNew}>New</Text>
+                            <Text style={styles.titleProjects}>Projects</Text>
+                        </View>
 
-                    <TouchableOpacity
-                        style={styles.btnLogin}
-                        onPress={this._realizarLogin}
-                    >
-                        <Icon name="send" size={20} color='#000'/>
-                        <Text style={styles.btnLoginText}>Login</Text>
-                    </TouchableOpacity>
+                        <View style={styles.loginBox}>
+                            <View style={styles.inputBoxEmail}>
+                                <Icon name="email" size={24} color="#FFF"/>
+                                <TextInput 
+                                    style={styles.inputEmail}
+                                    placeholder="Email"
+                                    placeholderTextColor="#FFFFFF"
+                                    underlineColorAndroid="#FFFFFF"
+                                    onChange={email => this.setState({ email })}
+                                />
+                            </View>
+
+                            <View style={styles.inputBoxPass}>
+                                <Icon 
+                                    name="lock" 
+                                    size={24} 
+                                    color="#FFF"
+                                />
+                                <TextInput 
+                                    style={styles.inputSenha}
+                                    placeholder="Password"
+                                    placeholderTextColor="#FFFFFF"
+                                    underlineColorAndroid="#FFFFFF"
+                                    onChange={password => this.setState({ password })}
+                                />
+                            </View>
+
+                            <View style={styles.btns}>
+                                <TouchableOpacity
+                                    style={styles.btnLogin}
+                                    onPress={this._realizarLogin}
+                                >
+                                    <Icon name="send" size={20} color='#000'/>
+                                    <Text style={styles.btnLoginText}>Login</Text>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity
+                                    style={styles.btnRegister}
+                                >
+                                    <Icon name="add-box" size={20} color='#000'/>
+                                    <Text style={styles.btnLoginText}>Register</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
                 </View>
-            </View>
+            </ImageBackground>
         );
     };
 } 
 
 const styles = StyleSheet.create({
+    body: {
+        height: '100%'
+    },
+
+    mainTitles: {
+        alignItems: 'center'
+    },
+
+    titleNew: {
+        color: '#FFF',
+        fontSize: 37,
+        marginTop: 10,
+        marginRight: 100
+    },
+
+    titleProjects: {
+        color: '#FFF',
+        marginLeft: 50,
+        fontSize: 37
+    },
+
     container: {
-        backgroundColor: "#7B1FA2",
         height: "100%",
         justifyContent: "center",
         alignItems: "center"
@@ -72,6 +135,8 @@ const styles = StyleSheet.create({
 
     loginBox: {
         width: "70%",
+        marginTop: 100,
+        marginBottom: 60
     },
 
     inputBoxEmail: {
@@ -80,7 +145,8 @@ const styles = StyleSheet.create({
     },
 
     inputEmail:{
-        width: "90%"
+        width: "90%",
+        color: '#FFF'
     },
 
     inputBoxPass: {
@@ -92,6 +158,11 @@ const styles = StyleSheet.create({
 
     inputSenha: {
         width: "90%",
+        color: '#FFF'
+    },
+
+    btns: {
+        flexDirection: 'row'
     },
 
     btnLogin: {
@@ -103,8 +174,23 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         borderRadius: 4,
-        borderWidth: 1,
-        borderColor: "#620C87"
+        borderWidth: 2,
+        borderColor: "#620C87",
+        marginLeft: 4
+    },
+
+    btnRegister: {
+        width: 100,
+        height: 35,
+        backgroundColor: '#ADED70',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        padding: 10,
+        borderRadius: 4,
+        borderWidth: 2,
+        borderColor: "#620C87",
+        marginLeft: 10
     },
 
     btnLoginText: {
