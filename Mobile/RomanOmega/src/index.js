@@ -4,10 +4,11 @@ import {
 } from "react-navigation";
 
 import Login from './pages/login';
-import Cadastro from './pages/cadastrarUsuario';
+import CadastroUsuario from './pages/cadastrarUsuario';
+import CadastroProjetos from './pages/cadastrarProjetos';
 import PaginaInicial from './pages/paginaInicial';
 
-const AuthStack = createStackNavigator({ Cadastro, Login, PaginaInicial });
+const AuthStack = createStackNavigator({ CadastroProjetos, CadastroUsuario, Login, PaginaInicial });
   
 export default createAppContainer(
     AuthStack
