@@ -12645,23 +12645,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\33747821839\\.nuget\\packages\\": {},
+    "C:\\Users\\41587196824\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega.csproj",
+      "projectUniqueName": "C:\\Users\\41587196824\\Desktop\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega.csproj",
       "projectName": "Senai.Roman.BackEnd.Omega",
-      "projectPath": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega.csproj",
-      "packagesPath": "C:\\Users\\33747821839\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\33747821839\\Documents\\Ariel\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\obj\\",
+      "projectPath": "C:\\Users\\41587196824\\Desktop\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega.csproj",
+      "packagesPath": "C:\\Users\\41587196824\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\41587196824\\Desktop\\senai-roman-desafio-omega\\Back-End\\Solução\\Senai.Roman.BackEnd.Omega\\Senai.Roman.BackEnd.Omega\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\33747821839\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\41587196824\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

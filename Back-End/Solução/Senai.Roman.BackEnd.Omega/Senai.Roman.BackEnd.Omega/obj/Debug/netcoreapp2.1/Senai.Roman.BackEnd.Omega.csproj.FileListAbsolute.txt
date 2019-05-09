@@ -26,3 +26,17 @@ C:\Users\33747821839\Documents\Ariel\senai-roman-desafio-omega\Back-End\Soluçã
 C:\Users\33747821839\Documents\Ariel\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.RazorTargetAssemblyInfo.cache
 C:\Users\33747821839\Documents\Ariel\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.dll
 C:\Users\33747821839\Documents\Ariel\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.pdb
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\bin\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.deps.json
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\bin\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.runtimeconfig.json
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\bin\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.runtimeconfig.dev.json
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\bin\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.dll
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\bin\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.pdb
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.csprojAssemblyReference.cache
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.csproj.CoreCompileInputs.cache
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.RazorAssemblyInfo.cache
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.RazorAssemblyInfo.cs
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.AssemblyInfoInputs.cache
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.AssemblyInfo.cs
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.RazorTargetAssemblyInfo.cache
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.dll
+C:\Users\41587196824\Desktop\senai-roman-desafio-omega\Back-End\Solução\Senai.Roman.BackEnd.Omega\Senai.Roman.BackEnd.Omega\obj\Debug\netcoreapp2.1\Senai.Roman.BackEnd.Omega.pdb
