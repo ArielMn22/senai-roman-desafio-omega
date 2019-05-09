@@ -42,7 +42,11 @@ export default class Login extends Component{
         const token = resposta.data.token;
         console.warn(token);
         await AsyncStorage.setItem('usr-roman', token);
-        this.props.navigation.navigate('Cadastro');
+        // this.props.navigation.navigate('Cadastro');
+    }
+
+    _redireciona(){
+        this.props.navigation.navigate("Cadastro");
     }
 
     render(){
@@ -97,6 +101,7 @@ export default class Login extends Component{
 
                                 <TouchableOpacity
                                     style={styles.btnRegister}
+                                    onPress={this._redireciona}
                                 >
                                     <Icon name="add-box" size={20} color='#000'/>
                                     <Text style={styles.btnLoginText}>Register</Text>
