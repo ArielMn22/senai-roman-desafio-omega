@@ -12,6 +12,7 @@ import {
 } from "react-native";
 
 import api from '../services/api';
+import Axios from 'axios';
 
 export default class Login extends Component{
     static navigationOptions = {
@@ -28,21 +29,23 @@ export default class Login extends Component{
     }
 
     _realizarLogin = async () => {
-
-        let teste1 = this.state.email;
-        let teste2 = this.state.password;
-        
-        console.warn(teste1, teste2);
-
-        const resposta = api.post('/login', {
+        let teste = {
             email: this.state.email,
             senha: this.state.password
-        });
+        }
 
-        const token = resposta.data.token;
-        console.warn(token);
-        await AsyncStorage.setItem('usr-roman', token);
-        // this.props.navigation.navigate('Cadastro');
+        await Axios.post('http://192.168.3.143:5000/api/login', teste, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            const token = response.data;
+            AsyncStorage.setItem('usr-roman', token)
+            console.warn(token)
+        })
+        .catch(error => console.warn(error))
+        this.props.navigation.navigate('PaginaInicial');
     }
 
     _redireciona(){
@@ -71,7 +74,7 @@ export default class Login extends Component{
                                     placeholder="Email"
                                     placeholderTextColor="#FFFFFF"
                                     underlineColorAndroid="#FFFFFF"
-                                    onChange={email => this.setState({ email })}
+                                    onChangeText={email => this.setState({ email })}
                                 />
                             </View>
 
@@ -86,7 +89,7 @@ export default class Login extends Component{
                                     placeholder="Password"
                                     placeholderTextColor="#FFFFFF"
                                     underlineColorAndroid="#FFFFFF"
-                                    onChange={password => this.setState({ password })}
+                                    onChangeText={password => this.setState({ password })}
                                 />
                             </View>
 
