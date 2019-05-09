@@ -125,7 +125,6 @@ export default class CadastrarUsuario extends Component {
                 style={styles.btnLogin}
                 onPress={this.cadUsuario}
               >
-                {/* <Icon name="add-box" size={20} color="#000" /> */}
                 <Text style={styles.btnLoginText}>Register</Text>
               </TouchableOpacity>
             </View>
