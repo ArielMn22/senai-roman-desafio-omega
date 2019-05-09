@@ -5,11 +5,9 @@ import {
   StyleSheet,
   View,
   Text,
-  Image,
   ImageBackground,
   TextInput,
-  TouchableOpacity,
-  AsyncStorage
+  TouchableOpacity
 } from "react-native";
 
 // import api from "../services/api";
@@ -60,17 +58,70 @@ export default class CadastrarUsuario extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.loginBox}>
-          <View style={styles.inputBoxEmail}>
-            <Icon name="email" size={24} color="#FFF" />
-            <TextInput
-              style={styles.inputEmail}
-              placeholder="Seu nome"
-              placeholderTextColor="#FFFFFF"
-              underlineColorAndroid="#FFFFFF"
-              onChange={nome => this.setState({ nome })}
-            />
+      <ImageBackground
+        source={require('../assets/images/background_loginNew.png')}
+        style={{ width: '100%', height: '100%' }}
+      >
+        <View style={styles.container}>
+
+          <Text style={styles.mainTitle}>
+            Register
+          </Text>
+
+          <View style={styles.loginBox}>
+            <View style={styles.inputBoxEmail}>
+              <Icon name="email" size={24} color="#FFF" />
+              <TextInput
+                style={styles.inputEmail}
+                placeholder="Seu nome"
+                placeholderTextColor="#FFFFFF"
+                underlineColorAndroid="#FFFFFF"
+                onChange={nome => this.setState({ nome })}
+              />
+            </View>
+
+            <View style={styles.inputBoxEmail}>
+              <Icon name="email" size={24} color="#FFF" />
+              <TextInput
+                style={styles.inputEmail}
+                placeholder="Insira seu melhor e-mail"
+                placeholderTextColor="#FFFFFF"
+                underlineColorAndroid="#FFFFFF"
+                onChange={email => this.setState({ email })}
+              />
+            </View>
+
+            <View style={styles.inputBoxPass}>
+              <Icon name="lock" size={24} color="#FFF" />
+              <TextInput
+                style={styles.inputSenha}
+                placeholder="Password"
+                placeholderTextColor="#FFFFFF"
+                underlineColorAndroid="#FFFFFF"
+                onChange={password => this.setState({ password })}
+              />
+            </View>
+
+            <View style={styles.inputBoxPass}>
+              <Icon name="lock" size={24} color="#FFF" />
+              <TextInput
+                style={styles.inputSenha}
+                placeholder="Confirme sua password"
+                placeholderTextColor="#FFFFFF"
+                underlineColorAndroid="#FFFFFF"
+                onChange={confirmPassword => this.setState({ confirmPassword })}
+              />
+            </View>
+
+            <View style={styles.styleBtn}>
+              <TouchableOpacity
+                style={styles.btnLogin}
+                onPress={this.cadastrarUsuario}
+              >
+                <Icon name="add-box" size={20} color="#000" />
+                <Text style={styles.btnLoginText}>Register</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           <View style={styles.inputBoxEmail}>
@@ -114,17 +165,22 @@ export default class CadastrarUsuario extends Component {
             <Text style={styles.btnLoginText}>Login</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#7B1FA2",
     height: "100%",
     justifyContent: "center",
     alignItems: "center"
+  },
+
+  mainTitle: {
+    fontSize: 31,
+    color: '#FFF',
+    marginBottom: 40
   },
 
   loginBox: {
@@ -133,36 +189,43 @@ const styles = StyleSheet.create({
 
   inputBoxEmail: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: 15
   },
 
   inputEmail: {
-    width: "90%"
+    width: "90%",
+    color: '#FFF'
   },
 
   inputBoxPass: {
     flexDirection: "row",
     alignItems: "center",
     marginTop: 15
-    // marginBottom: 40
   },
 
   inputSenha: {
-    width: "90%"
+    width: "90%",
+    color: '#FFF'
+  },
+
+  styleBtn: {
+    alignItems: 'center'
   },
 
   btnLogin: {
     marginTop: 40,
-    width: 91,
-    height: 35,
+    width: 100,
+    height: 40,
     backgroundColor: "#ADED70",
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
     padding: 10,
     borderRadius: 4,
-    borderWidth: 1,
-    borderColor: "#620C87"
+    borderWidth: 2,
+    borderColor: "#620C87",
+    marginLeft: 10
   },
 
   btnLoginText: {

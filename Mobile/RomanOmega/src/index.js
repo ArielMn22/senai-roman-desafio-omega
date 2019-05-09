@@ -1,36 +1,15 @@
 import {
     createAppContainer,
-    createStackNavigator,
-    createBottomTabNavigator
+    createStackNavigator
 } from "react-navigation";
 
 import Login from './pages/login';
-import CadastrarUsuario from './pages/cadastrarUsuario';
+import Cadastro from './pages/cadastrarUsuario';
+import PaginaInicial from './pages/paginaInicial';
 
-const AuthStack = createStackNavigator({ Login });
-
-const MainTabNavigator = createBottomTabNavigator(
-    {
-      Login: {
-        screen: Login
-      },
-      CadastrarUsuario: {
-        screen: CadastrarUsuario
-      }
-    },
-    {
-      tabBarOptions: {
-        showLabel: false,
-      //   showIcon: true,
-        inactiveBackgroundColor: "#1D0097",
-        activeBackgroundColor: "#2400BE"
-      },
-      initialRouteName: "CadastrarUsuario"
-    }
-  );
+const AuthStack = createStackNavigator({ PaginaInicial, Cadastro, Login });
   
 export default createAppContainer(
-    // AuthStack,
-    MainTabNavigator
+    AuthStack
 );
 
