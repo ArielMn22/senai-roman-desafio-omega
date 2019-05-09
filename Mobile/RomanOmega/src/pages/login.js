@@ -12,13 +12,14 @@ import {
 } from "react-native";
 
 import api from '../services/api';
+import Axios from 'axios';
 
-export default class Login extends Component{
+export default class Login extends Component {
     static navigationOptions = {
         header: null
     };
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -28,29 +29,26 @@ export default class Login extends Component{
     }
 
     _realizarLogin = async () => {
-
-        let teste1 = this.state.email;
-        let teste2 = this.state.password;
-        
-        console.warn(teste1, teste2);
-
-        const resposta = api.post('/login', {
+        let teste = {
             email: this.state.email,
             senha: this.state.password
-        });
+        }
 
-        const token = resposta.data.token;
-        console.warn(token);
-        await AsyncStorage.setItem('usr-roman', token);
-        // this.props.navigation.navigate('Cadastro');
+        await Axios.post('http://192.168.3.143:5000/api/login', teste, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(response => {
+                const token = response.data;
+                AsyncStorage.setItem('usr-roman', token);
+            })
+            .catch(error => console.warn(error))
+        this.props.navigation.navigate('PaginaInicial');
     }
 
-    _redireciona(){
-        this.props.navigation.navigate("Cadastro");
-    }
-
-    render(){
-        return(
+    render() {
+        return (
             <ImageBackground
                 source={require('../assets/images/background_loginNew.png')}
                 style={{ width: '100%', height: '100%' }}
@@ -65,28 +63,28 @@ export default class Login extends Component{
 
                         <View style={styles.loginBox}>
                             <View style={styles.inputBoxEmail}>
-                                <Icon name="email" size={24} color="#FFF"/>
-                                <TextInput 
+                                <Icon name="email" size={24} color="#FFF" />
+                                <TextInput
                                     style={styles.inputEmail}
                                     placeholder="Email"
                                     placeholderTextColor="#FFFFFF"
                                     underlineColorAndroid="#FFFFFF"
-                                    onChange={email => this.setState({ email })}
+                                    onChangeText={email => this.setState({ email })}
                                 />
                             </View>
 
                             <View style={styles.inputBoxPass}>
-                                <Icon 
-                                    name="lock" 
-                                    size={24} 
+                                <Icon
+                                    name="lock"
+                                    size={24}
                                     color="#FFF"
                                 />
-                                <TextInput 
+                                <TextInput
                                     style={styles.inputSenha}
                                     placeholder="Password"
                                     placeholderTextColor="#FFFFFF"
                                     underlineColorAndroid="#FFFFFF"
-                                    onChange={password => this.setState({ password })}
+                                    onChangeText={password => this.setState({ password })}
                                 />
                             </View>
 
@@ -95,15 +93,15 @@ export default class Login extends Component{
                                     style={styles.btnLogin}
                                     onPress={this._realizarLogin}
                                 >
-                                    <Icon name="send" size={20} color='#000'/>
+                                    <Icon name="send" size={20} color='#000' />
                                     <Text style={styles.btnLoginText}>Login</Text>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity
                                     style={styles.btnRegister}
-                                    onPress={this._redireciona}
+                                    onPress={onPress=() => this.props.navigation.navigate('Cadastro')}
                                 >
-                                    <Icon name="add-box" size={20} color='#000'/>
+                                    <Icon name="add-box" size={20} color='#000' />
                                     <Text style={styles.btnLoginText}>Register</Text>
                                 </TouchableOpacity>
                             </View>
@@ -113,7 +111,7 @@ export default class Login extends Component{
             </ImageBackground>
         );
     };
-} 
+}
 
 const styles = StyleSheet.create({
     body: {
@@ -154,7 +152,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
 
-    inputEmail:{
+    inputEmail: {
         width: "90%",
         color: '#FFF'
     },

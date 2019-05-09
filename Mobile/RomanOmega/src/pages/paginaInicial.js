@@ -1,132 +1,88 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { PanGestureHandler, State } from 'react-native-gesture-handler';
+
+import api from '../services/api';
 
 import {
+    ScrollView,
     View,
     Text,
     StyleSheet,
-    Animated
+    FlatList,
+    AsyncStorage
 } from 'react-native';
-
-const translateY = new Animated.Value(0);
 
 export default class PaginaInicial extends Component {
     static navigationOptions = {
         header: null
     };
 
-    onHandlerStateChanged(event){
-        console.warn('Só um testezinho');
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            listaProjetos: []
+        }
     }
 
-    render(){
+    carregarProjetos = async () => {
+        await api.get('/projetos')
+            .then(response => {
+                this.setState({ listaProjetos: response.data });
+            })
+            .catch(function (error) {
+                console.warn(error);
+            })
+    }
 
-        const AnimatedEvent = Animated.event(
-            [
-                {
-                    nativeEvent: {
-                        translationY: translateY,
-                    },
-                },
-            ],
-            { useNativeDriver: true },
-        );
+    componentDidMount() {
+        this.carregarProjetos();
+    }
 
-        return(
-
-            <View>
-                <View style={{ width: '100%', height: '90%', backgroundColor: 'red', zIndex: -10 }}>
-
+    render() {
+        return (
+            <ScrollView>
+                <View style={styles.header}>
+                    <Text style={styles.userName}>Bruno Salles</Text>
+                    <Icon name="clear" size={25} color='#000' onPress={
+                        () => {AsyncStorage.removeItem('usr-roman')
+                        this.props.navigation.navigate('Login')}
+                    }/>
                 </View>
 
-                <PanGestureHandler
-                    onGestureEvent={AnimatedEvent}
-                    onHandlerStateChange={this.onHandlerStateChanged}
-                >
-                    <Animated.View style={styles.container}>
-                        <View style={styles.header}>
-                            <Text style={styles.userName}>Bruno Salles</Text>
-                            <Icon name="arrow-downward" size={25} color='#000'/>
-                        </View>
-
-                        <View style={styles.main}>
-                            <View style={styles.card}>
-                                <View style={styles.card__header}>
-                                    <Text>Bruno Salles</Text>
-                                    <Text>Desenvolvimento</Text>
-                                </View>
-                                <View style={styles.card__main}>
-                                    <Text>
-                                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
-                                    </Text>
-                                </View>
-                                <View style={styles.card__footer}>
-                                    <Text>Projeto: desenvolvimento de projetos</Text>
-                                </View>
-                            </View>
-
-                            <View style={styles.card}>
-                                <View style={styles.card__header}>
-                                    <Text>Bruno Salles</Text>
-                                    <Text>Desenvolvimento</Text>
-                                </View>
-                                <View style={styles.card__main}>
-                                    <Text>
-                                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
-                                    </Text>
-                                </View>
-                                <View style={styles.card__footer}>
-                                    <Text>Projeto: desenvolvimento de projetos</Text>
-                                </View>
-                            </View>
-
-                            <View style={styles.card}>
-                                <View style={styles.card__header}>
-                                    <Text>Bruno Salles</Text>
-                                    <Text>Desenvolvimento</Text>
-                                </View>
-                                <View style={styles.card__main}>
-                                    <Text>
-                                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
-                                    </Text>
-                                </View>
-                                <View style={styles.card__footer}>
-                                    <Text>Projeto: desenvolvimento de projetos</Text>
-                                </View>
-                            </View>
-
-                            <View style={styles.card}>
-                                <View style={styles.card__header}>
-                                    <Text>Bruno Salles</Text>
-                                    <Text>Desenvolvimento</Text>
-                                </View>
-                                <View style={styles.card__main}>
-                                    <Text>
-                                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
-                                    </Text>
-                                </View>
-                                <View style={styles.card__footer}>
-                                    <Text>Projeto: desenvolvimento de projetos</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </Animated.View>
-                </PanGestureHandler>
-            </View>
+                <View style={styles.main}>
+                    <FlatList
+                        data={this.state.listaProjetos}
+                        keyExtractor={item => item.id}
+                        renderItem={this.renderizaItem}
+                    />
+                </View>
+            </ScrollView>
+            
         );
     }
+
+    renderizaItem = ({ item }) => (
+        <View style={styles.card}>
+            <View style={styles.card__header}>
+                <Text>{item.usuarioNome}</Text>
+                <Text>{item.temaNome}</Text>
+            </View>
+            <View style={styles.card__main}>
+                <Text>
+                    Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
+                </Text>
+            </View>
+            <View style={styles.card__footer}>
+                <Text>Projeto: {item.nome}</Text>
+            </View>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
     container: {
-        transform: [{
-            translateY,
-        }],
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0
+        alignItems: 'center'
     },
 
     header: {
@@ -154,7 +110,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         borderWidth: 0.4,
         borderColor: "#000",
-        width: '80%',
+        width: '70%',
         height: 300,
         marginBottom: 30
     },
