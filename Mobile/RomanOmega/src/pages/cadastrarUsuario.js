@@ -20,30 +20,45 @@ export default class CadastrarUsuario extends Component {
     this.state = {
       nome: "",
       email: "",
-      password: "",
+      senha: "",
       confirmPassword: ""
     };
   }
 
-  cadastrarUsuario = async () => {
-    console.warn("Entrou no metodo...");
+  // cadUsuario() {
+  cadUsuario = async () => {
+    // console.warn("Entrou no metodo...");
 
     let usuario = {
       nome: this.state.nome,
       email: this.state.email,
-      senha: this.state.password,
+      senha: this.state.senha,
       idTipoUsuario: 1
     };
 
-    await Axios.post("http://localhost:5000/api/usuarios", usuario)
-      .then(data => {
-        console.warn(data);
-      })
-      .catch(erro => {
-        console.warn(erro);
-      });
+    // console.warn("usuario");
+    // console.warn(usuario);
+    // console.warn({usuario});
+
+    const data = await Axios.post(
+      "http://192.168.3.143:5000/api/usuarios",
+      usuario,
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    ).then(data => {
+      // console.warn(data.data);
+      console.warn("Usuário cadastrado com sucesso!");
+    });
+    // .catch(erro => {
+    //   console.warn(erro);
+    // });
+
     // const resposta = await api.post("/usuarios", usuario);
-  }
+    // console.warn(resposta.data);
+  };
 
   static navigationOptions = {
     header: null
@@ -52,14 +67,11 @@ export default class CadastrarUsuario extends Component {
   render() {
     return (
       <ImageBackground
-        source={require('../assets/images/background_loginNew.png')}
-        style={{ width: '100%', height: '100%' }}
+        source={require("../assets/images/background_loginNew.png")}
+        style={{ width: "100%", height: "100%" }}
       >
         <View style={styles.container}>
-
-          <Text style={styles.mainTitle}>
-            Register
-          </Text>
+          <Text style={styles.mainTitle}>Register</Text>
 
           <View style={styles.loginBox}>
             <View style={styles.inputBoxEmail}>
@@ -69,7 +81,7 @@ export default class CadastrarUsuario extends Component {
                 placeholder="Seu nome"
                 placeholderTextColor="#FFFFFF"
                 underlineColorAndroid="#FFFFFF"
-                onChange={nome => this.setState({ nome })}
+                onChangeText={nome => this.setState({ nome })}
               />
             </View>
 
@@ -80,7 +92,7 @@ export default class CadastrarUsuario extends Component {
                 placeholder="Insira seu melhor e-mail"
                 placeholderTextColor="#FFFFFF"
                 underlineColorAndroid="#FFFFFF"
-                onChange={email => this.setState({ email })}
+                onChangeText={email => this.setState({ email })}
               />
             </View>
 
@@ -91,7 +103,7 @@ export default class CadastrarUsuario extends Component {
                 placeholder="Password"
                 placeholderTextColor="#FFFFFF"
                 underlineColorAndroid="#FFFFFF"
-                onChange={password => this.setState({ password })}
+                onChangeText={senha => this.setState({ senha })}
               />
             </View>
 
@@ -102,16 +114,18 @@ export default class CadastrarUsuario extends Component {
                 placeholder="Confirme sua password"
                 placeholderTextColor="#FFFFFF"
                 underlineColorAndroid="#FFFFFF"
-                onChange={confirmPassword => this.setState({ confirmPassword })}
+                onChangeText={confirmPassword =>
+                  this.setState({ confirmPassword })
+                }
               />
             </View>
 
             <View style={styles.styleBtn}>
               <TouchableOpacity
                 style={styles.btnLogin}
-                onPress={this.cadastrarUsuario}
+                onPress={this.cadUsuario}
               >
-                <Icon name="add-box" size={20} color="#000" />
+                {/* <Icon name="add-box" size={20} color="#000" /> */}
                 <Text style={styles.btnLoginText}>Register</Text>
               </TouchableOpacity>
             </View>
@@ -131,7 +145,7 @@ const styles = StyleSheet.create({
 
   mainTitle: {
     fontSize: 31,
-    color: '#FFF',
+    color: "#FFF",
     marginBottom: 40
   },
 
@@ -147,7 +161,7 @@ const styles = StyleSheet.create({
 
   inputEmail: {
     width: "90%",
-    color: '#FFF'
+    color: "#FFF"
   },
 
   inputBoxPass: {
@@ -158,11 +172,11 @@ const styles = StyleSheet.create({
 
   inputSenha: {
     width: "90%",
-    color: '#FFF'
+    color: "#FFF"
   },
 
   styleBtn: {
-    alignItems: 'center'
+    alignItems: "center"
   },
 
   btnLogin: {
