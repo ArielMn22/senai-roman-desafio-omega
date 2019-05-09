@@ -8,7 +8,8 @@ import {
     View,
     Text,
     StyleSheet,
-    FlatList
+    FlatList,
+    AsyncStorage
 } from 'react-native';
 
 export default class PaginaInicial extends Component {
@@ -43,7 +44,10 @@ export default class PaginaInicial extends Component {
             <ScrollView>
                 <View style={styles.header}>
                     <Text style={styles.userName}>Bruno Salles</Text>
-                    <Icon name="arrow-downward" size={25} color='#000' />
+                    <Icon name="clear" size={25} color='#000' onPress={
+                        () => {AsyncStorage.removeItem('usr-roman')
+                        this.props.navigation.navigate('Login')}
+                    }/>
                 </View>
 
                 <View style={styles.main}>
