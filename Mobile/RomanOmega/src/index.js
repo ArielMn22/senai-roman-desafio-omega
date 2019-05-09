@@ -7,7 +7,7 @@ import Login from './pages/login';
 import Cadastro from './pages/cadastrarUsuario';
 import PaginaInicial from './pages/paginaInicial';
 
-const AuthStack = createStackNavigator({ PaginaInicial, Cadastro, Login });
+const AuthStack = createStackNavigator({ Cadastro, Login, PaginaInicial });
   
 export default createAppContainer(
     AuthStack
