@@ -9,18 +9,18 @@ import {
     Animated
 } from 'react-native';
 
+const translateY = new Animated.Value(0);
+
 export default class PaginaInicial extends Component {
     static navigationOptions = {
         header: null
     };
 
     onHandlerStateChanged(event){
-
+        console.warn('Só um testezinho');
     }
 
     render(){
-
-        const translateY = new Animated.Value(0);
 
         const AnimatedEvent = Animated.event(
             [
@@ -34,79 +34,86 @@ export default class PaginaInicial extends Component {
         );
 
         return(
-            <PanGestureHandler
-                onGestureEvent={onHandlerStateChanged}
-                onHandlerStateChange={onHandlerStateChanged}
-            >
-                <Animated.View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.userName}>Bruno Salles</Text>
-                        <Icon name="arrow-downward" size={25} color='#000'/>
-                    </View>
 
-                    <View style={styles.main}>
-                        <View style={styles.card}>
-                            <View style={styles.card__header}>
-                                <Text>Bruno Salles</Text>
-                                <Text>Desenvolvimento</Text>
-                            </View>
-                            <View style={styles.card__main}>
-                                <Text>
-                                    Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
-                                </Text>
-                            </View>
-                            <View style={styles.card__footer}>
-                                <Text>Projeto: desenvolvimento de projetos</Text>
-                            </View>
+            <View>
+                <View style={{ width: '100%', height: '90%', backgroundColor: 'red', zIndex: -10 }}>
+
+                </View>
+
+                <PanGestureHandler
+                    onGestureEvent={AnimatedEvent}
+                    onHandlerStateChange={this.onHandlerStateChanged}
+                >
+                    <Animated.View style={styles.container}>
+                        <View style={styles.header}>
+                            <Text style={styles.userName}>Bruno Salles</Text>
+                            <Icon name="arrow-downward" size={25} color='#000'/>
                         </View>
 
-                        <View style={styles.card}>
-                            <View style={styles.card__header}>
-                                <Text>Bruno Salles</Text>
-                                <Text>Desenvolvimento</Text>
+                        <View style={styles.main}>
+                            <View style={styles.card}>
+                                <View style={styles.card__header}>
+                                    <Text>Bruno Salles</Text>
+                                    <Text>Desenvolvimento</Text>
+                                </View>
+                                <View style={styles.card__main}>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
+                                    </Text>
+                                </View>
+                                <View style={styles.card__footer}>
+                                    <Text>Projeto: desenvolvimento de projetos</Text>
+                                </View>
                             </View>
-                            <View style={styles.card__main}>
-                                <Text>
-                                    Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
-                                </Text>
-                            </View>
-                            <View style={styles.card__footer}>
-                                <Text>Projeto: desenvolvimento de projetos</Text>
-                            </View>
-                        </View>
 
-                        <View style={styles.card}>
-                            <View style={styles.card__header}>
-                                <Text>Bruno Salles</Text>
-                                <Text>Desenvolvimento</Text>
+                            <View style={styles.card}>
+                                <View style={styles.card__header}>
+                                    <Text>Bruno Salles</Text>
+                                    <Text>Desenvolvimento</Text>
+                                </View>
+                                <View style={styles.card__main}>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
+                                    </Text>
+                                </View>
+                                <View style={styles.card__footer}>
+                                    <Text>Projeto: desenvolvimento de projetos</Text>
+                                </View>
                             </View>
-                            <View style={styles.card__main}>
-                                <Text>
-                                    Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
-                                </Text>
-                            </View>
-                            <View style={styles.card__footer}>
-                                <Text>Projeto: desenvolvimento de projetos</Text>
-                            </View>
-                        </View>
 
-                        <View style={styles.card}>
-                            <View style={styles.card__header}>
-                                <Text>Bruno Salles</Text>
-                                <Text>Desenvolvimento</Text>
+                            <View style={styles.card}>
+                                <View style={styles.card__header}>
+                                    <Text>Bruno Salles</Text>
+                                    <Text>Desenvolvimento</Text>
+                                </View>
+                                <View style={styles.card__main}>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
+                                    </Text>
+                                </View>
+                                <View style={styles.card__footer}>
+                                    <Text>Projeto: desenvolvimento de projetos</Text>
+                                </View>
                             </View>
-                            <View style={styles.card__main}>
-                                <Text>
-                                    Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
-                                </Text>
-                            </View>
-                            <View style={styles.card__footer}>
-                                <Text>Projeto: desenvolvimento de projetos</Text>
+
+                            <View style={styles.card}>
+                                <View style={styles.card__header}>
+                                    <Text>Bruno Salles</Text>
+                                    <Text>Desenvolvimento</Text>
+                                </View>
+                                <View style={styles.card__main}>
+                                    <Text>
+                                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
+                                    </Text>
+                                </View>
+                                <View style={styles.card__footer}>
+                                    <Text>Projeto: desenvolvimento de projetos</Text>
+                                </View>
                             </View>
                         </View>
-                    </View>
-                </Animated.View>
-            </PanGestureHandler>
+                    </Animated.View>
+                </PanGestureHandler>
+            </View>
         );
     }
 }
@@ -115,7 +122,11 @@ const styles = StyleSheet.create({
     container: {
         transform: [{
             translateY,
-        }]
+        }],
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0
     },
 
     header: {
