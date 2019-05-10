@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -62,6 +63,10 @@ namespace Senai.Roman.BackEnd.Omega.Controllers
         {
             try
             {
+                //int usuarioId = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                //projeto.IdUsuario = usuarioId;
+
                 ProjetoRepository.CadastrarProjeto(projeto);
 
                 return Ok();
