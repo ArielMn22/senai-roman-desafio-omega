@@ -11,7 +11,6 @@ import {
   AsyncStorage
 } from "react-native";
 
-// import api from "../services/api";
 import Axios from "axios";
 
 export default class CadastrarUsuario extends Component {
@@ -46,14 +45,13 @@ export default class CadastrarUsuario extends Component {
   }
 
   cadProjeto = async () => {
-    // console.warn("Entrou no metodo...");
-
     let projeto = {
       nome: this.state.proj,
       idTema: 1,
       idUsuario: 1
     };
 
+<<<<<<< HEAD
     // console.warn("usuario");
     // console.warn(usuario);
     // console.warn({usuario});
@@ -61,6 +59,8 @@ export default class CadastrarUsuario extends Component {
 
     console.warn(auth);
 
+=======
+>>>>>>> 54445d8ac1c080641d532af900a5d461fd3f847a
     const data = await Axios.post(
       "http://192.168.3.143:5000/api/projetos",
       projeto,
@@ -71,7 +71,6 @@ export default class CadastrarUsuario extends Component {
         }
       }
     ).then(data => {
-      // console.warn(data.data);
       console.warn("Projeto cadastrado com sucesso!");
     });
   };
@@ -115,8 +114,13 @@ export default class CadastrarUsuario extends Component {
                 style={styles.btnLogin}
                 onPress={this.cadProjeto}
               >
+<<<<<<< HEAD
                 {/* <Icon name="add-box" size={20} color="#000" /> */}
                 <Text style={styles.btnLoginText}>Cadastrar Projeto</Text>
+=======
+                <Icon name="add-box" size={20} color="#000" />
+                <Text style={styles.btnLoginText}>Register</Text>
+>>>>>>> 54445d8ac1c080641d532af900a5d461fd3f847a
               </TouchableOpacity>
             </View>
           </View>
