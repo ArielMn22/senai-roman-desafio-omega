@@ -7,7 +7,8 @@ import {
   Text,
   ImageBackground,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from "react-native";
 
 // import api from "../services/api";
@@ -50,11 +51,14 @@ export default class CadastrarUsuario extends Component {
       }
     ).then(data => {
       // console.warn(data.data);
-      console.warn("Usuário cadastrado com sucesso!");
+      Alert.alert("Usuário cadastrado com sucesso!");
+      // console.warn("Usuário cadastrado com sucesso!");
     });
     // .catch(erro => {
     //   console.warn(erro);
     // });
+
+    this.props.navigation.navigate("Login");
 
     // const resposta = await api.post("/usuarios", usuario);
     // console.warn(resposta.data);
