@@ -45,9 +45,11 @@ export default class PaginaInicial extends Component {
                 <View style={styles.header}>
                     <Text style={styles.userName}>Bruno Salles</Text>
                     <Icon name="clear" size={25} color='#000' onPress={
-                        () => {AsyncStorage.removeItem('usr-roman')
-                        this.props.navigation.navigate('Login')}
-                    }/>
+                        () => {
+                            AsyncStorage.removeItem('usr-roman')
+                            this.props.navigation.navigate('Login')
+                        }
+                    } />
                 </View>
 
                 <View style={styles.main}>
@@ -58,23 +60,25 @@ export default class PaginaInicial extends Component {
                     />
                 </View>
             </ScrollView>
-            
+
         );
     }
 
     renderizaItem = ({ item }) => (
-        <View style={styles.card}>
-            <View style={styles.card__header}>
-                <Text>{item.usuarioNome}</Text>
-                <Text>{item.temaNome}</Text>
-            </View>
-            <View style={styles.card__main}>
-                <Text>
-                    Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
+        <View style={styles.containerCard}>
+            <View style={styles.card}>
+                <View style={styles.card__header}>
+                    <Text>{item.usuarioNome}</Text>
+                    <Text>{item.temaNome}</Text>
+                </View>
+                <View style={styles.card__main}>
+                    <Text>
+                        Lorem ipsum dolor sit amet enucnuee euueuceue ceuceuhece ccuechuecheu
                 </Text>
-            </View>
-            <View style={styles.card__footer}>
-                <Text>Projeto: {item.nome}</Text>
+                </View>
+                <View style={styles.card__footer}>
+                    <Text>Projeto: {item.nome}</Text>
+                </View>
             </View>
         </View>
     )
@@ -103,16 +107,24 @@ const styles = StyleSheet.create({
     },
 
     main: {
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
+    containerCard: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     card: {
         borderRadius: 4,
         borderWidth: 0.4,
         borderColor: "#000",
-        width: '70%',
+        width: '80%',
         height: 300,
-        marginBottom: 30
+        marginBottom: 30,
+        alignItems: 'center',
+        justifyContent: 'space-around',
+
     },
 
     card__header: {
@@ -122,21 +134,24 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.4,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: 10
+        padding: 10,
+        backgroundColor: '#BF1BDC',
+        fontWeight: 'bold'
     },
 
     card__main: {
-        padding: 10,
-        height: 210
+        padding: 7,
+        height: 210,
     },
 
     card__footer: {
+        fontSize: 5,
         width: '100%',
         height: 45,
-        borderTopWidth: 0.4,
+        borderTopWidth: 0.4,    
         borderColor: '#000',
         justifyContent: 'center',
-        paddingLeft: 10
+        alignItems: 'center',
+        paddingLeft: 10,
     },
 });
