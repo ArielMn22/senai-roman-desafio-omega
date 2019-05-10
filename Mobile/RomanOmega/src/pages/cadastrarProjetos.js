@@ -8,7 +8,7 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
-  Picker
+  AsyncStorage
 } from "react-native";
 
 // import api from "../services/api";
@@ -23,7 +23,15 @@ export default class CadastrarUsuario extends Component {
       email: "",
       senha: "",
       confirmPassword: "",
-      listaTemas: []
+      proj: ""
+      // idTema: [
+      //   {
+      //     id: 1,
+      //     nome: "Selecione"
+      //   }
+      // ],
+      // listaTemas: [],
+      // temaSelecionado: ""
     };
   }
 
@@ -41,20 +49,25 @@ export default class CadastrarUsuario extends Component {
     // console.warn("Entrou no metodo...");
 
     let projeto = {
-      nome: this.state.nome,
-      idTema: this.state.idTema
+      nome: this.state.proj,
+      idTema: 1,
+      idUsuario: 1
     };
 
     // console.warn("usuario");
     // console.warn(usuario);
     // console.warn({usuario});
+    let auth = AsyncStorage.getItem("usr-roman");
+
+    console.warn(auth);
 
     const data = await Axios.post(
       "http://192.168.3.143:5000/api/projetos",
       projeto,
       {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization" : "bearer " + auth
         }
       }
     ).then(data => {
@@ -78,7 +91,7 @@ export default class CadastrarUsuario extends Component {
 
           <View style={styles.loginBox}>
             <View style={styles.inputBoxEmail}>
-              {/* <Icon name="email" size={24} color="#FFF" /> */}
+              <Icon name="email" size={24} color="#FFF" />
               <TextInput
                 style={styles.inputEmail}
                 placeholder="Ideia do projeto"
@@ -88,14 +101,14 @@ export default class CadastrarUsuario extends Component {
               />
             </View>
 
-            <Picker
-              //   selectedValue={this.state.language}
+            {/* <Picker
+              selectedValue={this.state.idTema}
               onValueChange={itemValue => this.setState({ idTema: itemValue })}
             >
               {this.state.listaTemas.map(tema => {
                 <Picker.Item label={tema.nome} value={tema.id} />;
               })}
-            </Picker>
+            </Picker> */}
 
             <View style={styles.styleBtn}>
               <TouchableOpacity
@@ -103,7 +116,7 @@ export default class CadastrarUsuario extends Component {
                 onPress={this.cadProjeto}
               >
                 {/* <Icon name="add-box" size={20} color="#000" /> */}
-                <Text style={styles.btnLoginText}>Register</Text>
+                <Text style={styles.btnLoginText}>Cadastrar Projeto</Text>
               </TouchableOpacity>
             </View>
           </View>
