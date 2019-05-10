@@ -11,7 +11,6 @@ import {
   Picker
 } from "react-native";
 
-// import api from "../services/api";
 import Axios from "axios";
 
 export default class CadastrarUsuario extends Component {
@@ -38,16 +37,10 @@ export default class CadastrarUsuario extends Component {
   }
 
   cadProjeto = async () => {
-    // console.warn("Entrou no metodo...");
-
     let projeto = {
       nome: this.state.nome,
       idTema: this.state.idTema
     };
-
-    // console.warn("usuario");
-    // console.warn(usuario);
-    // console.warn({usuario});
 
     const data = await Axios.post(
       "http://192.168.3.143:5000/api/projetos",
@@ -58,7 +51,6 @@ export default class CadastrarUsuario extends Component {
         }
       }
     ).then(data => {
-      // console.warn(data.data);
       console.warn("Projeto cadastrado com sucesso!");
     });
   };
@@ -78,7 +70,7 @@ export default class CadastrarUsuario extends Component {
 
           <View style={styles.loginBox}>
             <View style={styles.inputBoxEmail}>
-              {/* <Icon name="email" size={24} color="#FFF" /> */}
+              <Icon name="email" size={24} color="#FFF" />
               <TextInput
                 style={styles.inputEmail}
                 placeholder="Ideia do projeto"
@@ -102,7 +94,7 @@ export default class CadastrarUsuario extends Component {
                 style={styles.btnLogin}
                 onPress={this.cadProjeto}
               >
-                {/* <Icon name="add-box" size={20} color="#000" /> */}
+                <Icon name="add-box" size={20} color="#000" />
                 <Text style={styles.btnLoginText}>Register</Text>
               </TouchableOpacity>
             </View>

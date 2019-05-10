@@ -11,7 +11,6 @@ import {
     AsyncStorage
 } from "react-native";
 
-import api from '../services/api';
 import Axios from 'axios';
 
 export default class Login extends Component {
@@ -99,7 +98,7 @@ export default class Login extends Component {
 
                                 <TouchableOpacity
                                     style={styles.btnRegister}
-                                    onPress={onPress=() => this.props.navigation.navigate('Cadastro')}
+                                    onPress={onPress=() => this.props.navigation.navigate('CadastroUsuario')}
                                 >
                                     <Icon name="add-box" size={20} color='#000' />
                                     <Text style={styles.btnLoginText}>Register</Text>
